@@ -26,7 +26,7 @@ Deskripsi    :
 > file: `latihan_1.cpp`
 
 ### Deskripsi
-Buatlah program yang dapat menyimpan data beberapa film menggunakan struct. Setiap film memiliki data berikut:
+Buatlah program yang dapat menyimpan data film menggunakan struct. Setiap film memiliki data berikut:
 
 - Judul Film (string)
 - Sutradara (string)
