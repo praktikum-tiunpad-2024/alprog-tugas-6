@@ -1,0 +1,317 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: test 1.1
+      id: test-1-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 1.1
+        setup-command: ''
+        command: g++ latihan_1.cpp -o latihan_1_1 && ./latihan_1_1
+        input: |-
+          Inception
+          Christopher Nolan
+          2010
+          8.8
+        expected-output: |-
+          Judul: Inception
+          Sutradara: Christopher Nolan
+          Tahun Rilis: 2010
+          Rating: 8.8
+        comparison-method: exact
+        timeout: 1
+    - name: test 1.2
+      id: test-1-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 1.2
+        setup-command: ''
+        command: g++ latihan_1.cpp -o latihan_1_2 && ./latihan_1_2
+        input: |-
+          The Shawshank Redemption
+          Frank Darabont
+          1994
+          9.3
+        expected-output: |-
+          Judul: The Shawshank Redemption
+          Sutradara: Frank Darabont
+          Tahun Rilis: 1994
+          Rating: 9.3
+        comparison-method: exact
+        timeout: 1
+    - name: test 1.3
+      id: test-1-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 1.3
+        setup-command: ''
+        command: g++ latihan_1.cpp -o latihan_1_3 && ./latihan_1_3
+        input: |-
+          UP
+          Tegar
+          1994
+          9.3
+        expected-output: |-
+          Judul: UP
+          Sutradara: Tegar
+          Tahun Rilis: 1994
+          Rating: 9.3
+        comparison-method: exact
+        timeout: 1
+    - name: test 2.1
+      id: test-2-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 2.1
+        setup-command: ''
+        command: g++ latihan_2.cpp -o latihan_2_1 && ./latihan_2_1
+        input: |-
+          2
+          Laptop
+          1001
+          5000000
+          90
+          Smartphone
+          1002
+          3000000
+          40
+        expected-output: |-
+          Produk dengan Stok terbanyak :
+          Nama Produk: Laptop
+          Kode Produk: 1001
+          Harga: 5000000
+          dengan 90 stok
+        comparison-method: exact
+        timeout: 1
+    - name: test 2.2
+      id: test-2-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 2.2
+        setup-command: ''
+        command: g++ latihan_2.cpp -o latihan_2_2 && ./latihan_2_2
+        input: |-
+          3
+          Laptop
+          1001
+          5000000
+          50
+          Smartphone
+          1002
+          3000000
+          40
+          Power Bank
+          1003
+          100000
+          80
+        expected-output: |-
+          Produk dengan Stok terbanyak :
+          Nama Produk: Power Bank
+          Kode Produk: 1003
+          Harga: 100000
+          dengan 80 stok
+        comparison-method: exact
+        timeout: 1
+    - name: test 2.3
+      id: test-2-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 2.3
+        setup-command: ''
+        command: g++ latihan_2.cpp -o latihan_2_3 && ./latihan_2_3
+        input: |-
+          4
+          Laptop
+          1001
+          5000000
+          50
+          Smartphone
+          1002
+          3000000
+          40
+          Power Bank
+          1003
+          100000
+          80
+          Keyboard
+          1004
+          300000
+          10
+        expected-output: |-
+          Produk dengan Stok terbanyak :
+          Nama Produk: Power Bank
+          Kode Produk: 1003
+          Harga: 100000
+          dengan 80 stok
+        comparison-method: exact
+        timeout: 1
+    - name: test 3.1
+      id: test-3-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 3.1
+        setup-command: ''
+        command: g++ tugas_1.cpp -o tugas_1_1 && ./tugas_1_1
+        input: |-
+          2
+          Avanza 2019
+          1300
+          terjual
+          Nissan GT-R Nismo 2020
+          3800
+          belum terjual
+        expected-output: |-
+          Terjual : Avanza 2019
+          Belum Terjual : Nissan GT-R Nismo 2020
+        comparison-method: exact
+        timeout: 1
+    - name: test 3.2
+      id: test-3-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 3.2
+        setup-command: ''
+        command: g++ tugas_1.cpp -o tugas_1_2 && ./tugas_1_2
+        input: |2-
+          3
+          Avanza 2019
+          1300
+          terjual
+          Nissan GT-R Nismo 2020
+          3800
+          belum terjual
+          MV3 Garuda Limousine
+          2157
+          belum terjual
+        expected-output: |-
+          Terjual : Avanza 2019
+          Belum Terjual : Nissan GT-R Nismo 2020 , MV3 Garuda Limousine
+        comparison-method: exact
+        timeout: 1
+    - name: test 3.3
+      id: test-3-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 3.3
+        setup-command: ''
+        command: g++ tugas_1.cpp -o tugas_1_3 && ./tugas_1_3
+        input: |-
+          4
+          Avanza 2011
+          1000
+          terjual
+          Supra
+          90000
+          belum terjual
+          kijang
+          2000
+          terjual
+          terios
+          11200
+          terjual
+        expected-output: |-
+          Terjual : Avanza 2011 , kijang , terios
+          Belum Terjual : Supra
+        comparison-method: exact
+        timeout: 1
+    - name: test 4.1
+      id: test-4-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 4.1
+        setup-command: ''
+        command: g++ tugas_2.cpp -o tugas_2_1 && ./tugas_2_1
+        input: |-
+          2
+          Rizki
+          140808
+          80
+          Farel
+          140881
+          70
+        expected-output: |-
+          Lulus : 140808
+          Tidak Lulus : 140881
+          Rata-rata : 75
+        comparison-method: exact
+        timeout: 1
+    - name: test 4.2
+      id: test-4-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 4.2
+        setup-command: ''
+        command: g++ tugas_2.cpp -o tugas_2_2 && ./tugas_2_2
+        input: |-
+          3
+          Rizki
+          140808
+          80
+          Farel
+          140881
+          70
+          Panji
+          140882
+          90
+        expected-output: |-
+          Lulus : 140808 , 140882
+          Tidak Lulus : 140881
+          Rata-rata : 80
+        comparison-method: exact
+        timeout: 1
+    - name: test 4.3
+      id: test-4-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test 4.3
+        setup-command: ''
+        command: g++ tugas_2.cpp -o tugas_2_3 && ./tugas_2_3
+        input: |-
+          4
+          tegar
+          140
+          90
+          panji
+          141
+          90
+          sanju
+          142
+          75
+          novem
+          143
+          65
+        expected-output: |-
+          Lulus : 140 , 141 , 142
+          Tidak Lulus : 143
+          Rata-rata : 80
+        comparison-method: exact
+        timeout: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-1-1_RESULTS: "${{steps.test-1-1.outputs.result}}"
+        TEST-1-2_RESULTS: "${{steps.test-1-2.outputs.result}}"
+        TEST-1-3_RESULTS: "${{steps.test-1-3.outputs.result}}"
+        TEST-2-1_RESULTS: "${{steps.test-2-1.outputs.result}}"
+        TEST-2-2_RESULTS: "${{steps.test-2-2.outputs.result}}"
+        TEST-2-3_RESULTS: "${{steps.test-2-3.outputs.result}}"
+        TEST-3-1_RESULTS: "${{steps.test-3-1.outputs.result}}"
+        TEST-3-2_RESULTS: "${{steps.test-3-2.outputs.result}}"
+        TEST-3-3_RESULTS: "${{steps.test-3-3.outputs.result}}"
+        TEST-4-1_RESULTS: "${{steps.test-4-1.outputs.result}}"
+        TEST-4-2_RESULTS: "${{steps.test-4-2.outputs.result}}"
+        TEST-4-3_RESULTS: "${{steps.test-4-3.outputs.result}}"
+      with:
+        runners: test-1-1,test-1-2,test-1-3,test-2-1,test-2-2,test-2-3,test-3-1,test-3-2,test-3-3,test-4-1,test-4-2,test-4-3
