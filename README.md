@@ -78,45 +78,64 @@ Data Film
 > file: `latihan_2.cpp`
 
 ### Deskripsi
-Buatlah sebuah struct yang dapat menyimpan data produk di toko. Data yang disimpan meliputi:
-
+Buatlah sebuah struct yang dapat menampilkan produk dengan jumlah terbanyak. Data yang disimpan meliputi:
+- n jumlah produk
 - Nama Produk (string)
 - Kode Produk (integer)
 - Harga Produk (float)
-- Program harus bisa menambahkan beberapa produk dan 
-
+- stok barang (int)
 ### Contoh
   
 * Sample Input 1
   
   ```
-  Nama Produk: Laptop
-  Kode Produk: 1001
-  Harga Produk: 5000000
+  2
+  Laptop
+  1001
+  5000000
+  50
+  Smartphone
+  1002
+  3000000
+  40
   ```
 
 * Sample Output 1
   
   ```
+  Produk dengan Stok terbanyak :
   Nama Produk: Laptop 
   Kode Produk: 1001
   Harga: 5000000
+  dengan 50 stok
   ```
   
 * Sample Input 2
   
   ```
-  Nama Produk: Smartphone
-  Kode Produk: 1002
-  Harga: 3000000
+  3
+  Laptop
+  1001
+  5000000
+  50
+  Smartphone
+  1002
+  3000000
+  40
+  Power Bank
+  1003
+  100000
+  80
   ```
 
 * Sample Output 2
   
   ```
-  Nama Produk: Laptop
-  Kode Produk: 1001
-  Harga: 5000000
+  Produk dengan Stok terbanyak :
+  Nama Produk: Power Bank
+  Kode Produk: 1003
+  Harga: 100000
+  dengan 80 stok
   ```
 
 ## Penjualan Mobil
